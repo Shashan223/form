@@ -8,7 +8,12 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
+
 """
+import os
+import dj_database_url
+from decouple import config
+
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATE_DIR=os.path.join(BASE_DIR,'templates')
@@ -24,7 +29,7 @@ SECRET_KEY = 'django-insecure-a%hy6#vu_@7#-+24o!90#*4v!ot^_03d+h^6^oo703rrjv7g$+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.onrender.com']
 
 
 # Application definition
@@ -80,7 +85,7 @@ DATABASES = {
         'USER': 'postgres',
         'PASSWORD': 'Shashank@2022',
         'HOST': 'localhost',
-        'PORT': '8000',
+        'PORT': '5432',
     }
 }
 
@@ -134,3 +139,13 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+import dj_database_url
+from decouple import config
+
+DATABASES = {
+    'default': dj_database_url.config(
+        default=config('DATABASE_URL')
+    )
+}
+
+
