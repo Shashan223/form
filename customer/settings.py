@@ -81,10 +81,10 @@ WSGI_APPLICATION = 'customer.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'customer',
-        'USER': 'postgres',
-        'PASSWORD': 'Shashank@2022',
-        'HOST': 'localhost',
+        'NAME': 'customer_1u7d',
+        'USER': 'customer_1u7d_user',
+        'PASSWORD': 'nnzeVQXcOTM32iaCjsdO3BeNkiAEwsYN',
+        'HOST': 'dpg-d0gosuidbo4c73bjgamg-a',
         'PORT': '5432',
     }
 }
@@ -139,13 +139,19 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+import os
 import dj_database_url
 from decouple import config
 
+# Use environment variables to set settings
+SECRET_KEY = config('SECRET_KEY')
+DEBUG = config('DEBUG', cast=bool)
+
 DATABASES = {
     'default': dj_database_url.config(
-        default=config('DATABASE_URL')
-    )
+        default=config('DATABASE_URL'))
 }
 
+# Allowed Hosts (in list format)
+ALLOWED_HOSTS = config('ALLOWED_HOSTS').split(',')
 
