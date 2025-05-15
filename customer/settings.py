@@ -10,9 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 
 """
-import os
-import dj_database_url
-from decouple import config
+
 
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -29,7 +27,8 @@ SECRET_KEY = 'django-insecure-a%hy6#vu_@7#-+24o!90#*4v!ot^_03d+h^6^oo703rrjv7g$+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.onrender.com']
+ALLOWED_HOSTS = ['*']
+
 
 
 # Application definition
@@ -81,10 +80,10 @@ WSGI_APPLICATION = 'customer.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'customer_1u7d',
-        'USER': 'customer_1u7d_user',
-        'PASSWORD': 'nnzeVQXcOTM32iaCjsdO3BeNkiAEwsYN',
-        'HOST': 'dpg-d0gosuidbo4c73bjgamg-a',
+        'NAME': 'customer',
+        'USER': 'postgres',
+        'PASSWORD': 'Shashank@2022',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
@@ -139,19 +138,3 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
-import os
-import dj_database_url
-from decouple import config
-
-# Use environment variables to set settings
-SECRET_KEY = config('SECRET_KEY')
-DEBUG = config('DEBUG', cast=bool)
-
-DATABASES = {
-    'default': dj_database_url.config(
-        default=config('DATABASE_URL'))
-}
-
-# Allowed Hosts (in list format)
-ALLOWED_HOSTS = config('ALLOWED_HOSTS').split(',')
-
