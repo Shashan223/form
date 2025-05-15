@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 
 import os
+import dj_database_url
+from decouple import config
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATE_DIR=os.path.join(BASE_DIR,'templates')
 STATIC_DIR=os.path.join(BASE_DIR,'static')
@@ -78,14 +80,7 @@ WSGI_APPLICATION = 'customer.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'customer',
-        'USER': 'postgres',
-        'PASSWORD': 'Shashank@2022',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
+   'default': dj_database_url.parse(config('DATABASE_URL'))
 }
 
 
