@@ -80,7 +80,7 @@ def register_customer(request):
         # Create and save the customer registration
         customer = CustomerRegistration(**data)
         customer.save()
-        return HttpResponse("Customer registered successfully!")
+        return render(request, 'customTemp/success.html')
 
     return render(request, 'customTemp/form.html')
 
