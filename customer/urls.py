@@ -17,9 +17,22 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 import customapp.views as cv
+from django.conf import settings
+
+from django.conf.urls.static import static
+
 
 urlpatterns = [
   
-    path('', cv. register_customer),
+    path('register/', cv.register_customer),
+    path('login/', cv.user_login),
+    path('', cv.menu),
+    path('dashboard/', cv.dashboard, name='dashboard'),
+    path('customer/<int:pk>/', cv.customer_detail, name='customer_detail'),
+     path('customer/<int:pk>/download/', cv.download_customer_data, name='download_customer_data'),
+    
+    
     
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            padding: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            background: #fff;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .btn-view {
+            padding: 6px 12px;
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+        .btn-view:hover {
+            background-color: #27ae60;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Customer Registration Dashboard</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>S.No.</th>
+            <th>Company Name</th>
+            <th>Finance Head Name</th>
+            <th>Finance Head Mobile</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for customer in customers %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ customer.company_name }}</td>
+            <td>{{ customer.finance_head_name }}</td>
+            <td>{{ customer.finance_head_mobile }}</td>
+            <td>
+                <a href="{% url 'customer_detail' customer.pk %}" class="btn-view">View</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="4">No customers found.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</body>
+</html>

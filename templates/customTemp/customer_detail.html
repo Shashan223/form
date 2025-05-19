@@ -9,6 +9,22 @@
             font-family: Arial, sans-serif;
             margin: 20px;
         }
+        .download-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #008CBA;
+    color: white;
+    padding: 10px 16px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.download-button:hover {
+    background-color: #0073a8;
+}
+
 
         table {
             width: 100%;
@@ -25,7 +41,21 @@
         th {
             background-color: #f2f2f2;
         }
+                   .return-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #5cb85c; /* Green color for return */
+            color: white;
+            padding: 10px 16px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+        }
 
+        .return-button:hover {
+            background-color: #4cae4c;
+        }
         h2, h3 {
             text-align: center;
             margin-bottom: 20px;
@@ -82,7 +112,12 @@
     </style>
 </head>
 <body>
+    <a href="https://ritcomsystems.com/" class="return-button">Return to Site</a>
+
+    
     <h2>Ritcom Systems And Services Private Limited</h2>
+    <a href="{% url 'download_customer_data' customer.id %}" class="download-button" download>Download</a>
+
     <p style="text-align: center;">LGF-7,Dhan Nirman Complex,Ashok Marg Lucknow,Uttar Pradesh-226001</p>
     <h3>Customer Registration Form</h3>
 
@@ -90,33 +125,33 @@
         <table>
             <tr>
                 <th colspan="4">Company Name:- *</th>
-                <td colspan="10"><input type="text" name="company_name" required></td>
+                <td colspan="10"><input type="text" name="company_name" value="{{ customer.company_name }}" required></td>
             </tr>
             <tr>
                 <th colspan="4">Registered Address:- *</th>
-                <td colspan="10"><input type="text" name="registered_address" required></td>
+                <td colspan="10"><input type="text" name="registered_address" value="{{ customer.registered_address }}" required></td>
             </tr>
             <tr>
                 
                 <td colspan="10"></td>
                 <td colspan="2"><strong>Pin code:-</strong></td>
-                <td colspan="2"><input type="text" name="pin_code" ></td>
+                <td colspan="2"><input type="text" name="pin_code" value="{{ customer.pin_code }}"></td>
             </tr>
             <tr>
                 <td colspan="2"><strong>Land Line No:-</strong></td>
-                <td colspan="6"><input type="text" name="landline_no"></td>
+                <td colspan="6"><input type="text" name="landline_no" value="{{ customer.landline_no }}"></td>
                 <td colspan="2"><strong>Tele Fax No:-</strong></td>
-                <td colspan="4"><input type="text" name="telefax_no"></td>
+                <td colspan="4"><input type="text" name="telefax_no" value="{{ customer.telefax_no }}"></td>
             </tr>
             <tr>
                 <th colspan="4">Name of Finance Head:-*</th>
-                <td colspan="10"><input type="text" name="finance_head_name" required></td>
+                <td colspan="10"><input type="text" name="finance_head_name" value="{{ customer.finance_head_name }}" required></td>
             </tr>
             <tr>
                 <th colspan="4">Email ID of Finance Head:-*</th>
-                <td colspan="6"><input type="email" name="finance_head_email" required></td>
+                <td colspan="6"><input type="email" name="finance_head_email" value="{{ customer.finance_head_email }}"  required></td>
                 <td colspan="2"><strong>Mobile No:-*</strong></td>
-                <td colspan="2"><input type="text" name="finance_head_mobile" required></td>
+                <td colspan="2"><input type="text" name="finance_head_mobile" value="{{ customer.finance_head_mobile }}" required></td>
             </tr>
             <tr>
                 <td colspan="14"><strong>Billing & Shipping Address(Multiple Godown Address)</strong></td>
@@ -128,39 +163,39 @@
             </tr>
             <tr>
                 <th colspan="4">Address *</th>
-                <td colspan="5"><input type="text" name="billing_address1" ></td>
-                <td colspan="5"><input type="text" name="shipping_address1" ></td>
+                <td colspan="5"><input type="text" name="billing_address1" value="{{ customer.billing_address1 }}"></td>
+                <td colspan="5"><input type="text" name="shipping_address1" value="{{ customer.shipping_address1 }}"></td>
             </tr>
            
             <tr>
                 <th colspan="4">Contact Person Name:-*</th>
-                <td colspan="5"><input type="text" name="billing_contact_name" ></td>
-                <td colspan="5"><input type="text" name="shipping_contact_name" ></td>
+                <td colspan="5"><input type="text" name="billing_contact_name" value="{{ customer.billing_contact_name }}"></td>
+                <td colspan="5"><input type="text" name="shipping_contact_name" value="{{ customer.shipping_contact_name }}" ></td>
             </tr>
             <tr>
                 <th colspan="4">Contact Person Mobile No:- *</th>
-                <td colspan="5"><input type="text" name="billing_contact_mobile" ></td>
-                <td colspan="5"><input type="text" name="shipping_contact_mobile" ></td>
+                <td colspan="5"><input type="text" name="billing_contact_mobile" value="{{ customer.billing_contact_mobile }}"></td>
+                <td colspan="5"><input type="text" name="shipping_contact_mobile" value="{{ customer.shipping_contact_mobile }}" ></td>
             </tr>
             <tr>
                 <th colspan="4">Contact Person E-Mail ID:-</th>
-                <td colspan="5"><input type="email" name="billing_contact_email" ></td>
-                <td colspan="5"><input type="email" name="shipping_contact_email" ></td>
+                <td colspan="5"><input type="email" name="billing_contact_email" value="{{ customer.billing_contact_email }}"></td>
+                <td colspan="5"><input type="email" name="shipping_contact_email" value="{{ customer.shipping_contact_email }}" ></td>
             </tr>
             <tr>
                 <td colspan="14"><strong>Tax Registration Details</strong></td>
             </tr>
             <tr>
                 <td colspan="2"><strong>PAN CARD No:-</strong></td>
-                <td colspan="3"><input type="text" name="pan_card_no" ></td>
+                <td colspan="3"><input type="text" name="pan_card_no" value="{{ customer.pan_card_no }}" ></td>
                 <td colspan="4"><strong>GST No:-*</strong></td>
-                <td colspan="5"><input type="text" name="gst_no" required></td>
+                <td colspan="5"><input type="text" name="gst_no" value="{{ customer.gst_no }}" required></td>
             </tr>
             <tr>
                 <td colspan="2"><strong>MSME No:-</strong></td>
-                <td colspan="3"><input type="text" name="msme_no"></td>
+                <td colspan="3"><input type="text" name="msme_no" value="{{ customer.msme_no }}"></td>
                 <td colspan="4"><strong>CIN No:-</strong></td>
-                <td colspan="5"><input type="text" name="cin_no"></td>
+                <td colspan="5"><input type="text" name="cin_no" value="{{ customer.cin_no }}"></td>
             </tr>
             <tr>
                 <th colspan="4">Type Of Company:-</th>
@@ -187,22 +222,22 @@
             <tr>
                 <th colspan="4">Office Space:-</th>
                 <td colspan="2">Rented:-</td>
-                <td><input type="radio" name="office_space" value="rented"></td>
+                <td><input type="radio" name="office_space" value="rented" ></td>
                 <td colspan="2">Ownership:-</td>
                 <td><input type="radio" name="office_space" value="ownership"></td>
                 <td colspan="3">Office Space:-</td>
-                <td><input type="text" name="office_space_area"></td>
+                <td><input type="text" name="office_space_area" value="{{ customer.office_space_area }}"></td>
             </tr>
             <tr>
                 <td colspan="14"><strong>COMPANY TURNOVER (FOR LAST THREE YEARS)</strong></td>
             </tr>
             <tr>
                 <td colspan="2"><strong>Business Start Year:-</strong></td>
-                <td colspan="2"><input type="number" name="business_start_year" ></td>
+                <td colspan="2"><input type="number" name="business_start_year" value="{{ customer.business_start_year }}"></td>
                 <td colspan="3"><strong>Net Worth:-</strong></td>
-                <td colspan="2"><input type="text" name="net_worth"></td>
+                <td colspan="2"><input type="text" name="net_worth" value="{{ customer.net_worth }}"></td>
                 <td colspan="3"><strong>Equity/Capital :-</strong></td>
-                <td colspan="2"><input type="text" name="equity_capital"></td>
+                <td colspan="2"><input type="text" name="equity_capital" value="{{ customer.equity_capital }}"></td>
             </tr>
             <tr>
                 <td colspan="2"><strong>Financial Year</strong></td>
@@ -210,39 +245,39 @@
                 <td colspan="3">Year 2021 - 2022</td>
                 <td colspan="2">Year 2020 - 2021</td>
                 <td colspan="3"><strong>No Of Employees:-</strong></td>
-                <td colspan="2"><input type="number" name="no_of_employees" ></td>
+                <td colspan="2"><input type="number" name="no_of_employees" value="{{ customer.no_of_employees }}"></td>
             </tr>
             <tr>
                 <td colspan="2"><strong>Value</strong></td>
-                <td colspan="2"><input type="text" name="turnover_2023" ></td>
-                <td colspan="3"><input type="text" name="turnover_2022"></td>
-                <td colspan="2"><input type="text" name="turnover_2021" ></td>
+                <td colspan="2"><input type="text" name="turnover_2023" value="{{ customer.turnover_2023 }}" ></td>
+                <td colspan="3"><input type="text" name="turnover_2022" value="{{ customer.turnover_2022 }}"></td>
+                <td colspan="2"><input type="text" name="turnover_2021" value="{{ customer.turnover_2021 }}"></td>
                 <td colspan="3"><strong>No of Branches:-</strong></td>
-                <td colspan="2"><input type="number" name="no_of_branches" ></td>
+                <td colspan="2"><input type="number" name="no_of_branches" value="{{ customer.no_of_branches }}" required></td>
             </tr>
             <tr>
                 <td colspan="14"><strong>Proprietor/ Partners/ Directors details:</strong></td>
             </tr>
             <tr>
                 <td colspan="2"><strong>Name:-</strong></td>
-                <td colspan="5"><input type="text" name="director_name1" ></td>
-                <td colspan="7"><input type="text" name="director_name2"></td>
+                <td colspan="5"><input type="text" name="director_name1" value="{{ customer.director_name1 }}"></td>
+                <td colspan="7"><input type="text" name="director_name2" value="{{ customer.director_name2 }}"></td>
             </tr>
             <tr>
                 <td colspan="2"><strong>Residence Address:</strong></td>
-                <td colspan="12"><input type="text" name="director_address1" ></td>
+                <td colspan="12"><input type="text" name="director_address1" value="{{ customer.director_address1 }}"></td>
                 
             </tr>
          
            
             <tr>
                 <td colspan="2"><strong>E-Mail ID </strong></td>
-                <td colspan="12"><input type="email" name="director_email1" ></td>
+                <td colspan="12"><input type="email" name="director_email1"   value="{{ customer.director_email1 }}"></td>
                
             </tr>
             <tr>
                 <td colspan="2"><strong>Mobile No:-</strong></td>
-                <td colspan="12"><input type="text" name="director_mobile1" ></td>
+                <td colspan="12"><input type="text" name="director_mobile1" value="{{ customer.director_mobile1 }}"></td>
              
             </tr>
             <tr>
@@ -250,24 +285,24 @@
             </tr>
             <tr>
                 <td colspan="2"><strong>Bank Name:- *</strong></td>
-                <td colspan="12"><input type="text" name="bank_name" required></td>
+                <td colspan="12"><input type="text" name="bank_name" value="{{ customer.bank_name }}" required></td>
             </tr>
             <tr>
                 <td colspan="2"><strong>Bank Address:-*</strong></td>
-                <td colspan="12"><input type="text" name="bank_address1" required></td>
+                <td colspan="12"><input type="text" name="bank_address1"  value="{{ customer.bank_address1 }}" required></td>
             </tr>
          
             <tr>
                 <td colspan="2"><strong>Branch Name:- *</strong></td>
-                <td colspan="6"><input type="text" name="bank_branch_name" required></td>
+                <td colspan="6"><input type="text" name="bank_branch_name" value="{{ customer.bank_branch_name }}" required></td>
                 <td colspan="4"><strong>No. of Signatories :- </strong></td>
-                <td colspan="2"><input type="number" name="bank_signatories" ></td>
+                <td colspan="2"><input type="number" name="bank_signatories" value="{{ customer.bank_signatories }}" ></td>
             </tr>
             <tr>
                 <td colspan="2"><strong>Account No: *-</strong></td>
-                <td colspan="4"><input type="text" name="bank_account_no" required></td>
+                <td colspan="4"><input type="text" name="bank_account_no" value="{{ customer.bank_account_no }}" required></td>
                 <td colspan="3"><strong>IFSC / NEFT Code:- *</strong></td>
-                <td colspan="5"><input type="text" name="bank_ifsc_code" required></td>
+                <td colspan="5"><input type="text" name="bank_ifsc_code" value="{{ customer.bank_ifsc_code }}" required></td>
             </tr>
             <tr>
                 <th colspan="4">Type of Account:-*</th>
@@ -282,56 +317,56 @@
             </tr>
             <tr>
                 <td colspan="2"><strong>Bank Limit:- *</strong></td>
-                <td colspan="2"><input type="text" name="bank_limit" required></td>
+                <td colspan="2"><input type="text" name="bank_limit" value="{{ customer.bank_limit }}" required></td>
                 <td colspan="3">Cash Credit:-</td>
-                <td><input type="text" name="cash_credit_limit"></td>
+                <td><input type="text" name="cash_credit_limit"  value="{{ customer.cash_credit_limit }}"></td>
                 <td colspan="2">Overdraft:-</td>
-                <td><input type="text" name="overdraft_limit"></td>
+                <td><input type="text" name="overdraft_limit" value="{{ customer.overdraft_limit }}"></td>
                 <td colspan="2">Others:-</td>
-                <td><input type="text" name="other_limit"></td>
+                <td><input type="text" name="other_limit" value="{{ customer.other_limit }}"></td>
             </tr>
             <tr>
                 <td colspan="14"><strong>REFERENCE OF DISTRIBUTOR / PARTIES</strong></td>
             </tr>
             <tr>
                 <td colspan="2"><strong>Name:- </strong></td>
-                <td colspan="12"><input type="text" name="ref_name1" ></td>
+                <td colspan="12"><input type="text" name="ref_name1" value="{{ customer.ref_name1 }}"></td>
             </tr>
             <tr>
                 <td colspan="2"><strong>Address:- </strong></td>
-                <td colspan="12"><input type="text" name="ref_address1_1" ></td>
+                <td colspan="12"><input type="text" name="ref_address1_1" value="{{ customer.ref_address1_1 }}" ></td>
                
             </tr>
             
             
             <tr>
                 <td colspan="2"><strong>Telephone No:- </strong></td>
-                <td colspan="5"><input type="text" name="ref_telephone1" ></td>
+                <td colspan="5"><input type="text" name="ref_telephone1" value="{{ customer.ref_telephone1 }}"></td>
                 <td colspan="7"></td>
             </tr>
             <tr>
                 <td colspan="2"><strong>Contact Person:-</strong></td>
-                <td colspan="5"><input type="text" name="ref_contact_person1" ></td>
+                <td colspan="5"><input type="text" name="ref_contact_person1" value="{{ customer.ref_contact_person1 }}" ></td>
                 <td colspan="7"></td>
             </tr>
             <tr>
                 <td colspan="2"><strong>Mobile No:- </strong></td>
-                <td colspan="5"><input type="text" name="ref_mobile1" ></td>
+                <td colspan="5"><input type="text" name="ref_mobile1"  value="{{ customer.ref_mobile1 }}"></td>
                 <td colspan="7"></td>
             </tr>
             <tr>
                 <td colspan="2"><strong>E-Mail ID:- </strong></td>
-                <td colspan="5"><input type="email" name="ref_email1" ></td>
+                <td colspan="5"><input type="email" name="ref_email1" value="{{ customer.ref_email1 }}" ></td>
                 <td colspan="7"></td>
             </tr>
             <tr>
                 <td colspan="2"><strong>Credit Period:- </strong></td>
-                <td colspan="5"><input type="text" name="ref_credit_period1" ></td>
+                <td colspan="5"><input type="text" name="ref_credit_period1" value="{{ customer.ref_credit_period1 }}" ></td>
                 <td colspan="7"></td>
             </tr>
             <tr>
                 <td colspan="2"><strong>Credit Limit:- </strong></td>
-                <td colspan="5"><input type="text" name="ref_credit_limit1" ></td>
+                <td colspan="5"><input type="text" name="ref_credit_limit1" value="{{ customer.ref_credit_limit1 }}"></td>
                 <td colspan="7"></td>
             </tr>
             <tr>
@@ -372,14 +407,14 @@
             </tr>
             <tr>
                 <td colspan="2">Signed By:-</td>
-                <td colspan="8"><input type="text" name="signed_by" ></td>
+                <td colspan="8"><input type="text" name="signed_by" value="{{ customer.signed_by }}"></td>
             </tr>
             <tr>
                 <td colspan="10"></td>
             </tr>
             <tr>
                 <td colspan="2">Designation:-</td>
-                <td colspan="8"><input type="text" name="designation"></td>
+                <td colspan="8"><input type="text" name="designation" value="{{ customer.designation }}"></td>
             </tr>
             <tr>
                 <td colspan="10"></td>
@@ -431,42 +466,42 @@
             </tr>
             <tr>
                 <td colspan="2">Reference Person:-</td>
-                <td colspan="3"><input type="text" name="office_ref_person"></td>
+                <td colspan="3"><input type="text" name="office_ref_person" value="{{ customer.office_ref_person }}"></td>
                 <td colspan="4">Branch:-</td>
-                <td colspan="5"><input type="text" name="office_branch"></td>
+                <td colspan="5"><input type="text" name="office_branch" value="{{ customer.office_branch }}"></td>
             </tr>
             <tr>
                 <td colspan="14"></td>
             </tr>
             <tr>
                 <td colspan="2">Credit Amount:-</td>
-                <td colspan="3"><input type="text" name="office_credit_amount"></td>
+                <td colspan="3"><input type="text" name="office_credit_amount" value="{{ customer.office_credit_amount }}"></td>
                 <td colspan="4">Credit Days:-</td>
-                <td colspan="5"><input type="text" name="office_credit_days"></td>
+                <td colspan="5"><input type="text" name="office_credit_days" value="{{ customer.office_credit_days }}"></td>
             </tr>
             <tr>
                 <td colspan="14"></td>
             </tr>
             <tr>
                 <td colspan="2">Product:-</td>
-                <td colspan="3"><input type="text" name="office_product"></td>
+                <td colspan="3"><input type="text" name="office_product" value="{{ customer.office_product }}"></td>
                 <td colspan="4">Date:-</td>
-                <td colspan="5"><input type="text" name="office_date"></td>
+                <td colspan="5"><input type="text" name="office_date"  value="{{ customer.office_date }}"></td>
             </tr>
             <tr>
                 <td colspan="14"></td>
             </tr>
             <tr>
                 <td colspan="2">Authorise By:-</td>
-                <td colspan="3"><input type="text" name="office_authorise_by"></td>
+                <td colspan="3"><input type="text" name="office_authorise_by" value="{{ customer.office_authorise_by }}"></td>
                 <td colspan="4">Approved Amount:-</td>
-                <td colspan="5"><input type="text" name="office_approved_amount"></td>
+                <td colspan="5"><input type="text" name="office_approved_amount" value="{{ customer.office_approved_amount }}"></td>
             </tr>
             <tr>
                 <td colspan="14">Remark</td>
             </tr>
             <tr>
-                <td colspan="14"><textarea name="office_remark" rows="4" cols="50"></textarea></td>
+                <td colspan="14"><textarea name="office_remark" rows="4" cols="50">{{ customer.remark }}</textarea></td>
             </tr>
         </table>
         {% csrf_token %}

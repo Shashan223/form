@@ -69,6 +69,15 @@ class CustomerRegistration(models.Model):
     office_date = models.CharField(max_length=20, blank=True, null=True)
     office_authorise_by = models.CharField(max_length=255, blank=True, null=True)
     office_approved_amount = models.CharField(max_length=20, blank=True, null=True)
+    printer_report = models.FileField(upload_to='printer_reports/', null=True, blank=True)
+    gst_certificate = models.FileField(upload_to='gst_certificates/', null=True, blank=True)
+    pan_card = models.FileField(upload_to='pan_cards/', null=True, blank=True)
+    balance_sheet = models.FileField(upload_to='balance_sheets/', null=True, blank=True)
+    company_certificate = models.FileField(upload_to='company_certificates/', null=True, blank=True)
+    bank_statement = models.FileField(upload_to='bank_statements/', null=True, blank=True)
+    audited_financials = models.FileField(upload_to='audited_financials/', null=True, blank=True)
+    kyc_document = models.FileField(upload_to='kyc_documents/', null=True, blank=True)
+    security_cheques = models.FileField(upload_to='security_cheques/', null=True, blank=True)
    
     remark = models.TextField()
 
