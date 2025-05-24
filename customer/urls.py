@@ -23,14 +23,15 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
+    
   
     path('register/', cv.register_customer),
     path('login/', cv.user_login),
     path('', cv.menu),
     path('dashboard/', cv.dashboard, name='dashboard'),
     path('customer/<int:pk>/', cv.customer_detail, name='customer_detail'),
-     path('customer/<int:pk>/download/', cv.download_customer_data, name='download_customer_data'),
-    
+    path('customer/<int:pk>/download/', cv.download_customer_dataa, name='download_customer_dataa'),
+
     
     
 ]

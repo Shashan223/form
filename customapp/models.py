@@ -9,7 +9,7 @@ class CustomerRegistration(models.Model):
     landline_no = models.CharField(max_length=20, blank=True, null=True)
     telefax_no = models.CharField(max_length=20, blank=True, null=True)
     finance_head_name = models.CharField(max_length=255, blank=True, null=True)
-    finance_head_email = models.EmailField()
+    finance_head_email = models.EmailField(null=True, blank=True)
     finance_head_mobile = models.CharField(max_length=20, blank=True, null=True)
     billing_address1 = models.CharField(max_length=255, blank=True, null=True)
     shipping_address1 = models.CharField(max_length=255, blank=True, null=True)
@@ -17,8 +17,8 @@ class CustomerRegistration(models.Model):
     shipping_contact_name = models.CharField(max_length=255, blank=True, null=True)
     billing_contact_mobile = models.CharField(max_length=20, blank=True, null=True)
     shipping_contact_mobile = models.CharField(max_length=20, blank=True, null=True)
-    billing_contact_email = models.EmailField()
-    shipping_contact_email = models.EmailField()
+    billing_contact_email = models.EmailField(null=True, blank=True)
+    shipping_contact_email = models.EmailField(null=True, blank=True)
     pan_card_no = models.CharField(max_length=20, blank=True, null=True)
     gst_no = models.CharField(max_length=20, blank=True, null=True)
     msme_no = models.CharField(max_length=20, blank=True, null=True)
@@ -27,14 +27,14 @@ class CustomerRegistration(models.Model):
     business_nature = models.CharField(max_length=255, blank=True, null=True)  # Change from JSONField to CharField
     office_space = models.CharField(max_length=50, blank=True, null=True)
     office_space_area = models.CharField(max_length=50, blank=True, null=True)
-    business_start_year = models.IntegerField()
+    business_start_year = models.IntegerField(null=True, blank=True)
     net_worth = models.CharField(max_length=20, blank=True, null=True)
     equity_capital = models.CharField(max_length=20, blank=True, null=True)
     turnover_2023 = models.CharField(max_length=20, blank=True, null=True)
     turnover_2022 = models.CharField(max_length=20, blank=True, null=True)
     turnover_2021 = models.CharField(max_length=20, blank=True, null=True)
-    no_of_employees = models.IntegerField(blank=True, null=True)
-    no_of_branches = models.IntegerField(blank=True, null=True)
+    no_of_employees = models.IntegerField(null=True, blank=True)
+    no_of_branches = models.IntegerField(null=True, blank=True)
     director_name1 = models.CharField(max_length=255, blank=True, null=True)
     director_name2 = models.CharField(max_length=255, blank=True, null=True)
     director_address1 = models.CharField(max_length=255, blank=True, null=True)
@@ -43,7 +43,7 @@ class CustomerRegistration(models.Model):
     bank_name = models.CharField(max_length=255, blank=True, null=True)
     bank_address1 = models.CharField(max_length=255, blank=True, null=True)
     bank_branch_name = models.CharField(max_length=255, blank=True, null=True)
-    bank_signatories = models.IntegerField( blank=True, null=True)
+    bank_signatories = models.IntegerField(null=True, blank=True)
     bank_account_no = models.CharField(max_length=20, blank=True, null=True)
     bank_ifsc_code = models.CharField(max_length=20, blank=True, null=True)
     account_type = models.CharField(max_length=255, blank=True, null=True)  # Change from JSONField to CharField
@@ -79,7 +79,7 @@ class CustomerRegistration(models.Model):
     kyc_document = models.FileField(upload_to='kyc_documents/', null=True, blank=True)
     security_cheques = models.FileField(upload_to='security_cheques/', null=True, blank=True)
    
-    remark = models.TextField()
+    remark = models.TextField(null=True, blank=True)
 
     def __str__(self):
         return self.company_name

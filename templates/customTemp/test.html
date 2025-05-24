@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Choose an Option</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f4f8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: #fff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 500px;
+      width: 100%;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .options {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+    }
+
+    .option {
+      flex: 1;
+      background: #e3eaf0;
+      margin: 0 10px;
+      padding: 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+      border: 2px solid transparent;
+    }
+
+    .option:hover {
+      background: #d1e0ed;
+      border-color: #007BFF;
+    }
+
+    .option.active {
+      background: #c8e1ff;
+      border-color: #0056b3;
+    }
+
+    @media (max-width: 500px) {
+      .options {
+        flex-direction: column;
+      }
+
+      .option {
+        margin: 10px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Please Choose an Option</h1>
+    <div class="options">
+      <div class="option" id="option1" onclick="selectOption('option1')">
+        <strong>Option 1</strong><br>
+        Billing Address same as Shipping
+      </div>
+      <div class="option" id="option2" onclick="selectOption('option2')">
+        <strong>Option 2</strong><br>
+        Enter Different Billing Address
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function selectOption(id) {
+      document.querySelectorAll('.option').forEach(opt => {
+        opt.classList.remove('active');
+      });
+      document.getElementById(id).classList.add('active');
+    }
+  </script>
+</body>
+</html>
