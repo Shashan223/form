@@ -46,7 +46,6 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
 ROOT_URLCONF = 'customer.urls'
@@ -79,7 +78,7 @@ DATABASES = {
         'NAME': 'customer',
         'USER': 'postgres',
         'PASSWORD': 'Shashank@2022',
-        'HOST': '127.0.0.1',  # Use 127.0.0.1 instead of 'localhost'
+        'HOST': 'localhost',  # Use 127.0.0.1 instead of 'localhost'
         'PORT': '5432',
     }
 }
