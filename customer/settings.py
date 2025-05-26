@@ -19,10 +19,7 @@ STATIC_DIR=os.path.join(BASE_DIR,'static')
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-import os
-
-SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
-
+SECRET_KEY = 'django-insecure-a%hy6#vu_@7#-+24o!90#*4v!ot^_03d+h^6^oo703rrjv7g$+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -76,9 +73,15 @@ WSGI_APPLICATION = 'customer.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-import dj_database_url
 DATABASES = {
-    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'customer',
+        'USER': 'postgres',
+        'PASSWORD': 'Shashank@2022',
+        'HOST': 'localhost',  # Or your database server IP/domain
+        'PORT': '5432',        # Default PostgreSQL port
+    }
 }
 
 
@@ -126,5 +129,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATICFILES_DIRS=[
 STATIC_DIR,
 ]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-

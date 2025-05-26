@@ -31,6 +31,8 @@ urlpatterns = [
     path('dashboard/', cv.dashboard, name='dashboard'),
     path('customer/<int:pk>/', cv.customer_detail, name='customer_detail'),
     path('customer/<int:pk>/download/', cv.download_customer_dataa, name='download_customer_dataa'),
+    path('customers/download/all/excel/', cv.download_all_customers_excel_exact_format, name='download_all_customers_excel_exact_format'),
+
 
     
     
