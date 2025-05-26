@@ -79,10 +79,11 @@ DATABASES = {
         'NAME': 'customer',
         'USER': 'postgres',
         'PASSWORD': 'Shashank@2022',
-        'HOST': '127.0.0.1',  # Or your database server IP/domain
-        'PORT': '5432',        # Default PostgreSQL port
+        'HOST': '127.0.0.1',  # Use 127.0.0.1 instead of 'localhost'
+        'PORT': '5432',
     }
 }
+
 
 
 
