@@ -78,10 +78,11 @@ DATABASES = {
         'NAME': 'customer_db',
         'USER': 'customer_user',
         'PASSWORD': 'customer@2025',
-        'HOST': 'localhost',  # Use 127.0.0.1 instead of 'localhost'
+        'HOST': '127.0.0.1',
         'PORT': '5432',
     }
 }
+
 
 
 
