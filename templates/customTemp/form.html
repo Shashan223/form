@@ -105,9 +105,11 @@ function copyBillingToShipping() {
 </head>
 <body>
     {% load static %}
+    <div class="header-logo">
     
 
     <img src="{% static 'images/cz.jpeg' %}" alt="Ritcom Logo">
+    </div>
     <h2>Ritcom Systems And Services Private Limited</h2>
     <p style="text-align: center;">LGF-7,Dhan Nirman Complex,Ashok Marg Lucknow,Uttar Pradesh-226001</p>
     <h3>Customer Registration Form</h3>
@@ -345,6 +347,7 @@ function copyBillingToShipping() {
                 <td colspan="14"><textarea name="office_remark" rows="4" cols="50"></textarea></td>
             </tr>
         </table>
+
         {% csrf_token %}
 
         <button type="submit">Submit</button>
