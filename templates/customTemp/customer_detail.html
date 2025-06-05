@@ -1,98 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Customer Registration Form</title>
     <style> 
-    
+        /* Reduced font sizes */
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 10px; /* smaller font */
+            width: 18.5cm; /* narrower width */
+            margin-left: 0cm;
+        }
+
+        h2, h3 {
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 14px; /* smaller headings */
+        }
+
+        /* Buttons */
         .download-button {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background-color: #008CBA;
-    color: white;
-    padding: 10px 16px;
-    text-decoration: none;
-    border-radius: 4px;
-    font-weight: bold;
-}
-
-.download-button:hover {
-    background-color: #0073a8;
-}
-
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-            margin-right: 400px;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #008CBA;
+            color: white;
+            padding: 6px 12px; /* smaller padding */
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 10px;
+        }
+        .download-button:hover {
+            background-color: #0073a8;
         }
 
-        th, td {
-            border: 1px solid #000;
-            padding: 8px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-                   .return-button {
+        .return-button {
             position: absolute;
             top: 20px;
             left: 20px;
             background-color: #5cb85c; /* Green color for return */
             color: white;
-            padding: 10px 16px;
+            padding: 6px 12px; /* smaller padding */
             text-decoration: none;
             border-radius: 4px;
             font-weight: bold;
+            font-size: 10px;
         }
-
         .return-button:hover {
             background-color: #4cae4c;
         }
-        h2, h3 {
-            text-align: center;
-            margin-bottom: 20px;
+
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+            margin-right: 400px;
+            font-size: 9px; /* smaller font for table */
         }
 
+        th, td {
+            border: 1px solid #000;
+            padding: 4px 6px; /* reduced padding */
+            text-align: left;
+            vertical-align: middle;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: 600;
+        }
+
+        /* Inputs */
         input[type="text"],
         input[type="email"],
         input[type="number"],
         textarea {
             width: 100%;
-            padding: 8px;
-            margin: 5px 0;
+            padding: 4px 6px; /* smaller padding */
+            margin: 3px 0;
             border: 1px solid #ccc;
             border-radius: 4px;
             box-sizing: border-box;
+            font-size: 9px;
+            font-family: Arial, sans-serif;
         }
 
         input[type="checkbox"],
-input[type="radio"] {
-    appearance: auto;
-    -webkit-appearance: auto;
-    -moz-appearance: auto;
-}
+        input[type="radio"] {
+            appearance: auto;
+            -webkit-appearance: auto;
+            -moz-appearance: auto;
+            transform: scale(0.85); /* smaller checkboxes and radios */
+            margin-right: 3px;
+            vertical-align: middle;
+        }
 
+        textarea {
+            font-size: 9px;
+        }
+
+        /* Buttons */
         button {
             background-color: #4CAF50;
             color: white;
-            padding: 10px 20px;
+            padding: 6px 12px;
             border: none;
             border-radius: 4px;
             cursor: pointer;
             display: block;
-            margin: 0 auto;
+            margin: 10px auto;
+            font-size: 10px;
         }
 
         button:hover {
             background-color: #45a049;
         }
 
+        /* Flex container */
         .flex-container {
             display: flex;
             flex-wrap: wrap;
@@ -101,7 +128,7 @@ input[type="radio"] {
 
         .flex-item {
             width: 48%;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         @media (max-width: 600px) {
@@ -109,35 +136,24 @@ input[type="radio"] {
                 width: 100%;
             }
         }
-    </style>
-    <style>
-          @page {
+
+        /* Page size */
+        @page {
             size: A4;
             margin: 1.5cm;
         }
 
+        /* Remove borders from input, textarea, select in print */
         input, textarea, select {
             border: none !important;
             outline: none !important;
         }
 
-        body {
-            font-family: Arial, sans-serif;
-            font-size: 12px;
-            width: 18.5cm; /* narrower width */
-            margin-left:0cm;
-        }
-    
-
-
-
-</style>
-
+    </style>
 </head>
 <body>
     <a href="https://ritcomsystems.com/" class="return-button">Return to Site</a>
 
-    
     <h2>Ritcom Systems And Services Private Limited</h2>
     <a href="{% url 'download_customer_dataa' customer.id %}" class="download-button" download>Download</a>
 
@@ -155,7 +171,6 @@ input[type="radio"] {
                 <td colspan="10"><input type="text" name="registered_address" value="{{ customer.registered_address }}" required></td>
             </tr>
             <tr>
-                
                 <td colspan="10"></td>
                 <td colspan="2"><strong>Pin code:-</strong></td>
                 <td colspan="2"><input type="text" name="pin_code" value="{{ customer.pin_code }}"></td>
@@ -163,7 +178,6 @@ input[type="radio"] {
             <tr>
                 <td colspan="2"><strong>Contact Details:-</strong></td>
                 <td colspan="6"><input type="text" name="landline_no" value="{{ customer.landline_no }}"></td>
-               
             </tr>
             <tr>
                 <th colspan="4">Name of Finance Head:-*</th>
@@ -188,7 +202,6 @@ input[type="radio"] {
                 <td colspan="5"><input type="text" name="billing_address1" value="{{ customer.billing_address1 }}"></td>
                 <td colspan="5"><input type="text" name="shipping_address1" value="{{ customer.shipping_address1 }}"></td>
             </tr>
-           
             <tr>
                 <th colspan="4">Contact Person Name:-*</th>
                 <td colspan="5"><input type="text" name="billing_contact_name" value="{{ customer.billing_contact_name }}"></td>
@@ -214,55 +227,50 @@ input[type="radio"] {
                 <td colspan="5"><input type="text" name="gst_no" value="{{ customer.gst_no }}" required></td>
             </tr>
 
-      <tr>
-    <th colspan="4">Type Of Company:-</th>
+            <tr>
+                <th colspan="4">Type Of Company:-</th>
 
-    {% if 'proprietor' in customer.company_type %}
-    <td colspan="2">Proprietor*:</td>
-    
-    {% endif %}
+                {% if 'proprietor' in customer.company_type %}
+                <td colspan="2">Proprietor*:</td>
+                {% endif %}
 
-    {% if 'partnership' in customer.company_type %}
-    <td colspan="2">Partnership:</td>
-    
-    {% endif %}
+                {% if 'partnership' in customer.company_type %}
+                <td colspan="2">Partnership:</td>
+                {% endif %}
 
-    {% if 'pvt_ltd' in customer.company_type %}
-    <td>Pvt Ltd:</td>
-    
-    {% endif %}
+                {% if 'pvt_ltd' in customer.company_type %}
+                <td>Pvt Ltd:</td>
+                {% endif %}
 
-    {% if 'ltd' in customer.company_type %}
-    <td>Ltd:</td>
-    
-    {% endif %}
-</tr>
+                {% if 'ltd' in customer.company_type %}
+                <td>Ltd:</td>
+                {% endif %}
+            </tr>
 
-<tr>
-    <th colspan="4">Office Space:-</th>
+            <tr>
+                <th colspan="4">Office Space:-</th>
 
-    {% if customer.office_space == 'rented' %}
-    <td colspan="2">Rented:</td>
-    <td>
-        <input type="radio" name="office_space" value="rented" checked>
-    </td>
-    {% endif %}
+                {% if customer.office_space == 'rented' %}
+                <td colspan="2">Rented:</td>
+                <td>
+                    <input type="radio" name="office_space" value="rented" checked>
+                </td>
+                {% endif %}
 
-    {% if customer.office_space == 'ownership' %}
-    <td colspan="2">Ownership:</td>
-    <td>
-        <input type="radio" name="office_space" value="ownership" checked>
-    </td>
-    {% endif %}
+                {% if customer.office_space == 'ownership' %}
+                <td colspan="2">Ownership:</td>
+                <td>
+                    <input type="radio" name="office_space" value="ownership" checked>
+                </td>
+                {% endif %}
 
-    <td colspan="3">Office Space Area (sq.ft):</td>
-    <td>
-        <input type="text" name="office_space_area" value="{{ customer.office_space_area }}">
-    </td>
-</tr>
+                <td colspan="3">Office Space Area (sq.ft):</td>
+                <td>
+                    <input type="text" name="office_space_area" value="{{ customer.office_space_area }}">
+                </td>
+            </tr>
 
-
-   
+            <tr>
                 <td colspan="14"><strong>Proprietor/ Partners/ Directors details:</strong></td>
             </tr>
             <tr>
@@ -273,19 +281,14 @@ input[type="radio"] {
             <tr>
                 <td colspan="2"><strong>Residence Address:</strong></td>
                 <td colspan="12"><input type="text" name="director_address1" value="{{ customer.director_address1 }}"></td>
-                
             </tr>
-         
-           
             <tr>
                 <td colspan="2"><strong>E-Mail ID </strong></td>
-                <td colspan="12"><input type="email" name="director_email1"   value="{{ customer.director_email1 }}"></td>
-               
+                <td colspan="12"><input type="email" name="director_email1" value="{{ customer.director_email1 }}"></td>
             </tr>
             <tr>
                 <td colspan="2"><strong>Mobile No:-</strong></td>
                 <td colspan="12"><input type="text" name="director_mobile1" value="{{ customer.director_mobile1 }}"></td>
-             
             </tr>
             <tr>
                 <td colspan="14"><strong>BANKER INFORMATION</strong></td>
@@ -298,11 +301,9 @@ input[type="radio"] {
                 <td colspan="2"><strong>Bank Address:-*</strong></td>
                 <td colspan="12"><input type="text" name="bank_address1"  value="{{ customer.bank_address1 }}" required></td>
             </tr>
-         
             <tr>
                 <td colspan="2"><strong>Branch Name:- *</strong></td>
                 <td colspan="6"><input type="text" name="bank_branch_name" value="{{ customer.bank_branch_name }}" required></td>
-             
             </tr>
             <tr>
                 <td colspan="2"><strong>Account No: *-</strong></td>
@@ -310,12 +311,10 @@ input[type="radio"] {
                 <td colspan="3"><strong>IFSC / NEFT Code:- *</strong></td>
                 <td colspan="5"><input type="text" name="bank_ifsc_code" value="{{ customer.bank_ifsc_code }}" required></td>
             </tr>
-         
-
             <tr>
                 <td colspan="2"><strong>Bank Limit:- *</strong></td>
                 <td colspan="2"><input type="text" name="bank_limit" value="{{ customer.bank_limit }}" required></td>
-                
+            </tr>
             <tr>
                 <td colspan="14"><strong>REFERENCE OF DISTRIBUTOR / PARTIES</strong></td>
             </tr>
@@ -326,10 +325,7 @@ input[type="radio"] {
             <tr>
                 <td colspan="2"><strong>Address:- </strong></td>
                 <td colspan="12"><input type="text" name="ref_address1_1" value="{{ customer.ref_address1_1 }}" ></td>
-               
             </tr>
-            
-            
             <tr>
                 <td colspan="2"><strong>Telephone No:- </strong></td>
                 <td colspan="5"><input type="text" name="ref_telephone1" value="{{ customer.ref_telephone1 }}"></td>
@@ -360,34 +356,29 @@ input[type="radio"] {
                 <td colspan="5"><input type="text" name="ref_credit_limit1" value="{{ customer.ref_credit_limit1 }}"></td>
                 <td colspan="7"></td>
             </tr>
-         
-            
             <tr>
                 <td colspan="10"></td>
             </tr>
             <tr>
                 <td colspan="14">Kindly Encl the Below Document. *</td>
             </tr>
-   
-<tr>
-    <td colspan="12">1. GST Certificate (Form 6) *</td>
-    <td colspan="2"><input type="file" name="doc_gst_certificate" required></td>
-</tr>
-<tr>
-    <td colspan="12">2. Pan Card of the Company *</td>
-    <td colspan="2"><input type="file" name="doc_pan_card" required></td>
-</tr>
-
-<tr>
-    <td colspan="12">3. Bank Statement for last 3 Months *</td>
-    <td colspan="2"><input type="file" name="doc_bank_statement" required></td>
-</tr>
-<
-<tr>
-    <td colspan="12">4. Security Cheques *</td>
-    <td colspan="2"><input type="file" name="doc_security_cheques" required></td>
-</tr>
-
+            <tr>
+                <td colspan="12">1. GST Certificate (Form 6) *</td>
+                <td colspan="2"><input type="file" name="doc_gst_certificate" required></td>
+            </tr>
+            <tr>
+                <td colspan="12">2. Pan Card of the Company *</td>
+                <td colspan="2"><input type="file" name="doc_pan_card" required></td>
+            </tr>
+            <tr>
+                <td colspan="12">3. Bank Statement for last 3 Months *</td>
+                <td colspan="2"><input type="file" name="doc_bank_statement" required></td>
+            </tr>
+            <tr>
+                <td colspan="12">4. Security Cheques *</td>
+                <td colspan="2"><input type="file" name="doc_security_cheques" required></td>
+            </tr>
+            <tr>
                 <td colspan="14"></td>
             </tr>
             <tr>
