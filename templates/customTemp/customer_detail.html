@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
@@ -148,11 +148,21 @@
             border: none !important;
             outline: none !important;
         }
+           .header-logo {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+            height: 10%;   /* reduce height by 40% */
+            width: auto;   /* keep aspect ratio */
+            max-width: 100%;
+        }
 
     </style>
 </head>
 <body>
     <a href="https://ritcomsystems.com/" class="return-button">Return to Site</a>
+     <img src="{% static 'images/cm.jpeg' %}" alt="Ritcom Logo" class="header-logo" />
 
     <h2>Ritcom Systems And Services Private Limited</h2>
     <a href="{% url 'download_customer_dataa' customer.id %}" class="download-button" download>Download</a>
