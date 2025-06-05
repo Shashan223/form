@@ -95,6 +95,12 @@
                 width: 100%;
             }
         }
+        .required-asterisk {
+
+
+            color: red;
+            font-weight: bold;
+        }
     </style>
     <script>
         function copyBillingToShipping() {
@@ -115,22 +121,22 @@
     </script>
 </head>
 <body>
-    <img src="{% static 'images/cm.jpeg' %}" alt="Ritcom Logo" class="header-logo" />
+    <img src="{% static 'images/cm.jpeg' %}" alt="Ritcom Logo" class="header-logo" style="margin-bottom: 2px;"/>
 
-    <h2>Ritcom Systems And Services Private Limited</h2>
-    <p style="text-align: center;">
+    <h2 style="margin-bottom: 2px;">Ritcom Systems And Services Private Limited</h2>
+    <p style="text-align: center;margin-bottom: 2px;">
         LGF-7,Dhan Nirman Complex,Ashok Marg Lucknow,Uttar Pradesh-226001
     </p>
-    <h3>Customer Registration Form</h3>
+    <h3 style="margin-top: 2px;">Customer Registration Form</h3>
 
     <form action="" method="post" enctype="multipart/form-data">
         <table>
             <tr>
-                <th colspan="4">Company Name:- *</th>
+                <th colspan="4">Company Name:- <span class="required-asterisk">*</span></th>
                 <td colspan="10"><input type="text" name="company_name" required /></td>
             </tr>
             <tr>
-                <th colspan="4">Registered Address:- *</th>
+                <th colspan="4">Registered Address:- <span class="required-asterisk">*</span></th>
                 <td colspan="10"><input type="text" name="registered_address" required /></td>
             </tr>
             <tr>
@@ -143,13 +149,13 @@
                 <td colspan="6"><input type="text" name="landline_no" /></td>
             </tr>
             <tr>
-                <th colspan="4">Name of Finance Head:-*</th>
+                <th colspan="4">Name of Finance Head:-<span class="required-asterisk">*</span></th>
                 <td colspan="10"><input type="text" name="finance_head_name" required /></td>
             </tr>
             <tr>
-                <th colspan="4">Email ID of Finance Head:-*</th>
+                <th colspan="4">Email ID of Finance Head:-<span class="required-asterisk">*</span></th>
                 <td colspan="6"><input type="email" name="finance_head_email" required /></td>
-                <td colspan="2"><strong>Mobile No:-*</strong></td>
+                <td colspan="2"><strong>Mobile No:-<span class="required-asterisk">*</span></strong></td>
                 <td colspan="2"><input type="text" name="finance_head_mobile" required /></td>
             </tr>
             <tr>
@@ -165,22 +171,22 @@
             </tr>
             <tr>
                 <td colspan="4"></td>
-                <td colspan="5"><strong>Billing Address / Office Address *</strong></td>
+                <td colspan="5"><strong>Billing Address / Office Address <span class="required-asterisk">*</span></strong></td>
                 <td colspan="5"><strong>Shipping Address / Godown Address</strong></td>
             </tr>
             <tr>
-                <th colspan="4">Address *</th>
+                <th colspan="4">Address <span class="required-asterisk">*</span></th>
                 <td colspan="5"><input type="text" name="billing_address1" /></td>
                 <td colspan="5"><input type="text" name="shipping_address1" /></td>
             </tr>
 
             <tr>
-                <th colspan="4">Contact Person Name:-*</th>
+                <th colspan="4">Contact Person Name:-<span class="required-asterisk">*</span></th>
                 <td colspan="5"><input type="text" name="billing_contact_name" /></td>
                 <td colspan="5"><input type="text" name="shipping_contact_name" /></td>
             </tr>
             <tr>
-                <th colspan="4">Contact Person Mobile No:- *</th>
+                <th colspan="4">Contact Person Mobile No:- <span class="required-asterisk">*</span></th>
                 <td colspan="5"><input type="text" name="billing_contact_mobile" /></td>
                 <td colspan="5"><input type="text" name="shipping_contact_mobile" /></td>
             </tr>
@@ -195,13 +201,13 @@
             <tr>
                 <td colspan="2"><strong>PAN CARD No:-</strong></td>
                 <td colspan="3"><input type="text" name="pan_card_no" /></td>
-                <td colspan="4"><strong>GST No:-*</strong></td>
+                <td colspan="4"><strong>GST No:-<span class="required-asterisk">*</span></strong></td>
                 <td colspan="5"><input type="text" name="gst_no" required /></td>
             </tr>
 
             <tr>
                 <th colspan="4">Type Of Company:-</th>
-                <td colspan="2">Proprietor:*-</td>
+                <td colspan="2">Proprietor:<span class="required-asterisk">*</span>-</td>
                 <td><input type="checkbox" name="company_type" value="proprietor" /></td>
                 <td colspan="2">Partnership:-</td>
                 <td><input type="checkbox" name="company_type" value="partnership" /></td>
@@ -246,23 +252,23 @@
                 <td colspan="14"><strong>BANKER INFORMATION</strong></td>
             </tr>
             <tr>
-                <td colspan="2"><strong>Bank Name:- *</strong></td>
+                <td colspan="2"><strong>Bank Name:- <span class="required-asterisk">*</span></strong></td>
                 <td colspan="12"><input type="text" name="bank_name" required /></td>
             </tr>
             <tr>
-                <td colspan="2"><strong>Bank Address:-*</strong></td>
+                <td colspan="2"><strong>Bank Address:-<span class="required-asterisk">*</span></strong></td>
                 <td colspan="12"><input type="text" name="bank_address1" required /></td>
             </tr>
 
             <tr>
-                <td colspan="2"><strong>Branch Name:- *</strong></td>
+                <td colspan="2"><strong>Branch Name:- <span class="required-asterisk">*</span></strong></td>
                 <td colspan="6"><input type="text" name="bank_branch_name" required /></td>
                 <td colspan="2"><input type="number" name="bank_signatories" /></td>
             </tr>
             <tr>
-                <td colspan="2"><strong>Account No: *-</strong></td>
+                <td colspan="2"><strong>Account No: <span class="required-asterisk">*</span>-</strong></td>
                 <td colspan="4"><input type="text" name="bank_account_no" required /></td>
-                <td colspan="3"><strong>IFSC / NEFT Code:- *</strong></td>
+                <td colspan="3"><strong>IFSC / NEFT Code:- <span class="required-asterisk">*</span></strong></td>
                 <td colspan="5"><input type="text" name="bank_ifsc_code" required /></td>
             </tr>
 
@@ -274,21 +280,21 @@
             </tr>
 
             <tr>
-                <td colspan="12">1. GST Certificate  *</td>
+                <td colspan="12">1. GST Certificate  <span class="required-asterisk">*</span></td>
                 <td colspan="2"><input type="file" name="doc_gst_certificate" required /></td>
             </tr>
             <tr>
-                <td colspan="12">2. Pan Card of the Company *</td>
+                <td colspan="12">2. Pan Card of the Company <span class="required-asterisk">*</span></td>
                 <td colspan="2"><input type="file" name="doc_pan_card" required /></td>
             </tr>
 
             <tr>
-                <td colspan="12">3. Bank Statement for last 3 Months *</td>
+                <td colspan="12">3. Bank Statement for last 3 Months<span class="required-asterisk">*</span></td>
                 <td colspan="2"><input type="file" name="doc_bank_statement" required /></td>
             </tr>
 
             <tr>
-                <td colspan="12">4. Security Cheques *</td>
+                <td colspan="12">4. Security Cheques <span class="required-asterisk">*</span></td>
                 <td colspan="2"><input type="file" name="doc_security_cheques" required /></td>
             </tr>
 
