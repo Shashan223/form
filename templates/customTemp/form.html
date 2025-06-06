@@ -140,10 +140,15 @@
                 <td colspan="10"><input type="text" name="registered_address" required /></td>
             </tr>
             <tr>
-                <td colspan="10"></td>
-                <td colspan="2"><strong>Pin code:-<span class="required-asterisk">*</span></strong></td>
-                <td colspan="2"><input type="text" name="pin_code" /></td>
-            </tr>
+    <td colspan="10"></td>
+    <td colspan="2"><strong>Pin code:-<span class="required-asterisk">*</span></strong></td>
+    <td colspan="2">
+        <input type="text" name="pin_code" required 
+               pattern="^\d{6}$" 
+               title="Pincode must be exactly 6 digits." />
+    </td>
+</tr>
+
             <tr>
                 <td colspan="2"><strong>Contact Details:-</strong></td>
                 <td colspan="6"><input type="text" name="landline_no" /></td>
@@ -202,7 +207,14 @@
                 <td colspan="2"><strong>PAN CARD No:-</strong></td>
                 <td colspan="3"><input type="text" name="pan_card_no" /></td>
                 <td colspan="4"><strong>GST No:-<span class="required-asterisk">*</span></strong></td>
-                <td colspan="5"><input type="text" name="gst_no" required /></td>
+                <td colspan="5">
+
+
+                    <input type="text" name="gst_no" required 
+                    pattern="^\d{2}[A-Za-z0-9]{11}$"
+                    title="GST number must be 13 characters long with the first two characters as digits." />
+                </td>
+
             </tr>
 
             <tr>
@@ -302,7 +314,7 @@
                 <td colspan="14"></td>
             </tr>
             <tr>
-                <td colspan="14">For Ritcom Systems and Services Pvt Ltd. office use only. </td>
+                <td colspan="14">For office use only. </td>
             </tr>
             <tr>
                 <td colspan="2">Reference Person:-</td>
