@@ -147,6 +147,7 @@ def register_customer(request):
             security_cheques_path = save_file('doc_security_cheques', 'security_cheques', request)
 
             customer = CustomerRegistration(**data)
+            customer.vendor_photo=vendor_photo_path
             customer.customer_registration = customer_registration_path
             customer.gst_certificate = gst_certificate_path
             customer.pan_card = pan_card_path
