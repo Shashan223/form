@@ -69,6 +69,7 @@ class CustomerRegistration(models.Model):
     office_date = models.CharField(max_length=20, blank=True, null=True)
     office_authorise_by = models.CharField(max_length=255, blank=True, null=True)
     office_approved_amount = models.CharField(max_length=20, blank=True, null=True)
+    vendor_photo = models.FileField(upload_to='vendor_photo/', null=True, blank=True)
     printer_report = models.FileField(upload_to='printer_reports/', null=True, blank=True)
     gst_certificate = models.FileField(upload_to='gst_certificates/', null=True, blank=True)
     pan_card = models.FileField(upload_to='pan_cards/', null=True, blank=True)

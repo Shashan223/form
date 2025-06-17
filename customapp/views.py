@@ -135,6 +135,7 @@ def register_customer(request):
            
         }
         try:
+            vendor_photo_path = save_file('doc_vendor_photo', 'vendor_photo', request)
             customer_registration_path = save_file('doc_customer_registration', 'customer_registration', request)
             gst_certificate_path = save_file('doc_gst_certificate', 'gst_certificates', request)
             pan_card_path = save_file('doc_pan_card', 'pan_cards', request)
@@ -158,6 +159,7 @@ def register_customer(request):
             customer.save()
 
             saved_files = {
+                'vendor_photo': vendor_photo_path,
                 'Customer Registration': customer_registration_path,
                 'Gst Certificate': gst_certificate_path,
                 'Pan Card': pan_card_path,
