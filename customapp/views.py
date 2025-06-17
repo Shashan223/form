@@ -49,6 +49,8 @@ def register_customer(request):
         
         
         
+        fs_vendor_photo = FileSystemStorage(location=os.path.join(settings.MEDIA_ROOT, 'vendor_photo'))
+
         fs_customer_registration = FileSystemStorage(location=os.path.join(settings.MEDIA_ROOT, 'customer_registration'))
         fs_gst_certificate = FileSystemStorage(location=os.path.join(settings.MEDIA_ROOT, 'gst_certificates'))
         fs_pan_card = FileSystemStorage(location=os.path.join(settings.MEDIA_ROOT, 'pan_cards'))
