@@ -1,0 +1,410 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Customer Registration Form</title>
+    <style> 
+        /* Reduced font sizes */
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 10px; /* smaller font */
+            width: 18.5cm; /* narrower width */
+            margin-left: 0cm;
+        }
+
+        h2, h3 {
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 14px; /* smaller headings */
+        }
+
+        /* Buttons */
+        .download-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #008CBA;
+            color: white;
+            padding: 6px 12px; /* smaller padding */
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 10px;
+        }
+        .download-button:hover {
+            background-color: #0073a8;
+        }
+
+        .return-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #5cb85c; /* Green color for return */
+            color: white;
+            padding: 6px 12px; /* smaller padding */
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 10px;
+        }
+        .return-button:hover {
+            background-color: #4cae4c;
+        }
+
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+            margin-right: 400px;
+            font-size: 9px; /* smaller font for table */
+        }
+
+        th, td {
+            border: 1px solid #000;
+            padding: 2px 4px; /* reduced padding */
+            text-align: left;
+            vertical-align: middle;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: 600;
+        }
+
+        /* Inputs */
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        textarea {
+            width: 100%;
+            padding: 4px 6px; /* smaller padding */
+            margin: 3px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 9px;
+            font-family: Arial, sans-serif;
+        }
+
+        input[type="checkbox"],
+        input[type="radio"] {
+            appearance: auto;
+            -webkit-appearance: auto;
+            -moz-appearance: auto;
+            transform: scale(0.85); /* smaller checkboxes and radios */
+            margin-right: 3px;
+            vertical-align: middle;
+        }
+
+        textarea {
+            font-size: 9px;
+        }
+
+        /* Buttons */
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            display: block;
+            margin: 10px auto;
+            font-size: 10px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Flex container */
+        .flex-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .flex-item {
+            width: 48%;
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 600px) {
+            .flex-item {
+                width: 100%;
+            }
+        }
+
+        /* Page size */
+        @page {
+            size: A4;
+            margin: 1.5cm;
+        }
+
+        /* Remove borders from input, textarea, select in print */
+        input, textarea, select {
+            border: none !important;
+            outline: none !important;
+        }
+           .header-logo {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+            height: 10%;   /* reduce height by 40% */
+            width: auto;   /* keep aspect ratio */
+            max-width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+   <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px; padding: 10px; border-bottom: 1px solid #ccc;">
+  <a href="https://ritcomsystems.com/" class="return-button" style="text-decoration: none;">Return to Site</a>
+
+  <h2 style="margin: 0; font-size: 18px;">Ritcom Systems And Services Private Limited</h2>
+
+  <a href="{% url 'download_customer_dataa' customer.id %}" class="download-button" download style="text-decoration: none;">Download</a>
+
+  <p style="margin: 0; font-size: 14px;">LGF-7, Dhan Nirman Complex, Ashok Marg, Lucknow, Uttar Pradesh - 226001</p>
+
+  <div style="text-align: center;">
+    <img src="{{ customer.vendor_photo.url }}" alt="Vendor Photo" style="width: 100px; height: 120px; object-fit: cover; border: 1px solid #ccc;">
+  </div>
+</div>
+
+  
+    <h3>Customer Registration Form</h3>
+    <form action="" method="post"  enctype="multipart/form-data">
+        <table>
+
+   
+</div>
+  
+            <tr>
+                <th colspan="4">Company Name:- *</th>
+                <td colspan="10"><input type="text" name="company_name" value="{{ customer.company_name }}" required></td>
+            </tr>
+            <tr>
+                <th colspan="4">Registered Address:- *</th>
+                <td colspan="10"><input type="text" name="registered_address" value="{{ customer.registered_address }}" required></td>
+            </tr>
+            <tr>
+                <td colspan="10"></td>
+                <td colspan="2"><strong>Pin code:-</strong></td>
+                <td colspan="2"><input type="text" name="pin_code" value="{{ customer.pin_code }}"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><strong>Contact Details:-</strong></td>
+                <td colspan="6"><input type="text" name="landline_no" value="{{ customer.landline_no }}"></td>
+            </tr>
+            <tr>
+                <th colspan="4">Name of Finance Head:-*</th>
+                <td colspan="10"><input type="text" name="finance_head_name" value="{{ customer.finance_head_name }}" required></td>
+            </tr>
+            <tr>
+                <th colspan="4">Email ID of Finance Head:-*</th>
+                <td colspan="6"><input type="email" name="finance_head_email" value="{{ customer.finance_head_email }}"  required></td>
+                <td colspan="2"><strong>Mobile No:-*</strong></td>
+                <td colspan="2"><input type="text" name="finance_head_mobile" value="{{ customer.finance_head_mobile }}" required></td>
+            </tr>
+            <tr>
+                <td colspan="14"><strong>Billing & Shipping Address(Multiple Godown Address)</strong></td>
+            </tr>
+            <tr>
+                <td colspan="4"></td>
+                <td colspan="5"><strong>Billing Address / Office Address *</strong></td>
+                <td colspan="5"><strong>Shipping Address / Godown Address</strong></td>
+            </tr>
+            <tr>
+                <th colspan="4">Address *</th>
+                <td colspan="5"><input type="text" name="billing_address1" value="{{ customer.billing_address1 }}"></td>
+                <td colspan="5"><input type="text" name="shipping_address1" value="{{ customer.shipping_address1 }}"></td>
+            </tr>
+            <tr>
+                <th colspan="4">Contact Person Name:-*</th>
+                <td colspan="5"><input type="text" name="billing_contact_name" value="{{ customer.billing_contact_name }}"></td>
+                <td colspan="5"><input type="text" name="shipping_contact_name" value="{{ customer.shipping_contact_name }}" ></td>
+            </tr>
+            <tr>
+                <th colspan="4">Contact Person Mobile No:- *</th>
+                <td colspan="5"><input type="text" name="billing_contact_mobile" value="{{ customer.billing_contact_mobile }}"></td>
+                <td colspan="5"><input type="text" name="shipping_contact_mobile" value="{{ customer.shipping_contact_mobile }}" ></td>
+            </tr>
+            <tr>
+                <th colspan="4">Contact Person E-Mail ID:-</th>
+                <td colspan="5"><input type="email" name="billing_contact_email" value="{{ customer.billing_contact_email }}"></td>
+                <td colspan="5"><input type="email" name="shipping_contact_email" value="{{ customer.shipping_contact_email }}" ></td>
+            </tr>
+            <tr>
+                <td colspan="14"><strong>Tax Registration Details</strong></td>
+            </tr>
+            <tr>
+                <td colspan="2"><strong>PAN CARD No:-</strong></td>
+                <td colspan="3"><input type="text" name="pan_card_no" value="{{ customer.pan_card_no }}" ></td>
+                <td colspan="4"><strong>GST No:-*</strong></td>
+                <td colspan="5"><input type="text" name="gst_no" value="{{ customer.gst_no }}" required></td>
+            </tr>
+
+            <tr>
+                <th colspan="4">Type Of Company:-</th>
+
+                {% if 'proprietor' in customer.company_type %}
+                <td colspan="2">Proprietor*:</td>
+                {% endif %}
+
+                {% if 'partnership' in customer.company_type %}
+                <td colspan="2">Partnership:</td>
+                {% endif %}
+
+                {% if 'pvt_ltd' in customer.company_type %}
+                <td>Pvt Ltd:</td>
+                {% endif %}
+
+                {% if 'ltd' in customer.company_type %}
+                <td>Ltd:</td>
+                {% endif %}
+            </tr>
+
+            <tr>
+                <th colspan="4">Office Space:-</th>
+
+                {% if customer.office_space == 'rented' %}
+                <td colspan="2">Rented:</td>
+                <td>
+                    <input type="radio" name="office_space" value="rented" checked>
+                </td>
+                {% endif %}
+
+                {% if customer.office_space == 'ownership' %}
+                <td colspan="2">Ownership:</td>
+                <td>
+                    <input type="radio" name="office_space" value="ownership" checked>
+                </td>
+                {% endif %}
+
+                <td colspan="3">Office Space Area (sq.ft):</td>
+                <td>
+                    <input type="text" name="office_space_area" value="{{ customer.office_space_area }}">
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="14"><strong>Proprietor/ Partners/ Directors details:</strong></td>
+            </tr>
+            <tr>
+                <td colspan="2"><strong>Name:-</strong></td>
+                <td colspan="5"><input type="text" name="director_name1" value="{{ customer.director_name1 }}"></td>
+                <td colspan="7"><input type="text" name="director_name2" value="{{ customer.director_name2 }}"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><strong>Residence Address:</strong></td>
+                <td colspan="12"><input type="text" name="director_address1" value="{{ customer.director_address1 }}"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><strong>E-Mail ID </strong></td>
+                <td colspan="12"><input type="email" name="director_email1" value="{{ customer.director_email1 }}"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><strong>Mobile No:-</strong></td>
+                <td colspan="12"><input type="text" name="director_mobile1" value="{{ customer.director_mobile1 }}"></td>
+            </tr>
+            <tr>
+                <td colspan="14"><strong>BANKER INFORMATION</strong></td>
+            </tr>
+            <tr>
+                <td colspan="2"><strong>Bank Name:- *</strong></td>
+                <td colspan="12"><input type="text" name="bank_name" value="{{ customer.bank_name }}" required></td>
+            </tr>
+            <tr>
+                <td colspan="2"><strong>Bank Address:-*</strong></td>
+                <td colspan="12"><input type="text" name="bank_address1"  value="{{ customer.bank_address1 }}" required></td>
+            </tr>
+            <tr>
+                <td colspan="2"><strong>Branch Name:- *</strong></td>
+                <td colspan="6"><input type="text" name="bank_branch_name" value="{{ customer.bank_branch_name }}" required></td>
+            </tr>
+            <tr>
+                <td colspan="2"><strong>Account No: *-</strong></td>
+                <td colspan="4"><input type="text" name="bank_account_no" value="{{ customer.bank_account_no }}" required></td>
+                <td colspan="3"><strong>IFSC / NEFT Code:- *</strong></td>
+                <td colspan="5"><input type="text" name="bank_ifsc_code" value="{{ customer.bank_ifsc_code }}" required></td>
+            </tr>
+            
+             <tr>
+                <td colspan="10"></td>
+            </tr>
+    
+            <tr>
+                <td colspan="14">Kindly Encl the Below Document. *</td>
+            </tr>
+            <tr>
+                <td colspan="12">1. GST Certificate (Form 6) *</td>
+                <td colspan="2"><input type="file" name="doc_gst_certificate" required></td>
+            </tr>
+            <tr>
+                <td colspan="12">2. Pan Card of the Company *</td>
+                <td colspan="2"><input type="file" name="doc_pan_card" required></td>
+            </tr>
+            <tr>
+                <td colspan="12">3. Bank Statement for last 3 Months *</td>
+                <td colspan="2"><input type="file" name="doc_bank_statement" required></td>
+            </tr>
+            <tr>
+                <td colspan="12">4. Security Cheques *</td>
+                <td colspan="2"><input type="file" name="doc_security_cheques" required></td>
+            </tr>
+            <tr>
+                <td colspan="14"></td>
+            </tr>
+            <tr>
+                <td colspan="14">For Ritcom Systems and Services PVT LTD office use only. </td>
+            </tr>
+            <tr>
+                <td colspan="2">Reference Person:-</td>
+                <td colspan="3"><input type="text" name="office_ref_person" value="{{ customer.office_ref_person }}"></td>
+                <td colspan="4">Branch:-</td>
+                <td colspan="5"><input type="text" name="office_branch" value="{{ customer.office_branch }}"></td>
+            </tr>
+            <tr>
+                <td colspan="14"></td>
+            </tr>
+            <tr>
+                <td colspan="2">Credit Amount:-</td>
+                <td colspan="3"><input type="text" name="office_credit_amount" value="{{ customer.office_credit_amount }}"></td>
+                <td colspan="4">Credit Days:-</td>
+                <td colspan="5"><input type="text" name="office_credit_days" value="{{ customer.office_credit_days }}"></td>
+            </tr>
+            <tr>
+                <td colspan="14"></td>
+            </tr>
+            <tr>
+                <td colspan="2">Product:-</td>
+                <td colspan="3"><input type="text" name="office_product" value="{{ customer.office_product }}"></td>
+                <td colspan="4">Date:-</td>
+                <td colspan="5"><input type="text" name="office_date"  value="{{ customer.office_date }}"></td>
+            </tr>
+            <tr>
+                <td colspan="14"></td>
+            </tr>
+            <tr>
+                <td colspan="2">Authorise By:-</td>
+                <td colspan="3"><input type="text" name="office_authorise_by" value="{{ customer.office_authorise_by }}"></td>
+                <td colspan="4">Approved Amount:-</td>
+                <td colspan="5"><input type="text" name="office_approved_amount" value="{{ customer.office_approved_amount }}"></td>
+            </tr>
+            <tr>
+                <td colspan="14">Remark</td>
+            </tr>
+            <tr>
+                <td colspan="14"><textarea name="office_remark" rows="4" cols="50">{{ customer.remark }}</textarea></td>
+            </tr>
+        </table>
+        {% csrf_token %}
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

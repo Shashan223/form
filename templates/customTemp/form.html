@@ -119,6 +119,88 @@
             }
         }
     </script>
+    <script>
+    function validateForm(event) {
+        const form = event.target;
+        const pinCode = form.pin_code.value.trim();
+        const financeMobile = form.finance_head_mobile.value.trim();
+        const panCard = form.pan_card_no.value.trim();
+        const gstNo = form.gst_no.value.trim();
+        const accountNo = form.bank_account_no.value.trim();
+        const ifscCode = form.bank_ifsc_code.value.trim();
+        const landline = form.landline_no.value.trim();
+        const billingMobile = form.billing_contact_mobile.value.trim();
+        const shippingMobile = form.shipping_contact_mobile.value.trim();
+        const billingEmail = form.billing_contact_email.value.trim();
+        const shippingEmail = form.shipping_contact_email.value.trim();
+        const financeEmail = form.finance_head_email.value.trim();
+        const directorMobile = form.director_mobile1.value.trim();
+        const directorEmail = form.director_email1.value.trim();
+
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const mobilePattern = /^\d{10}$/;
+        const pinPattern = /^\d{6}$/;
+        const panPattern = /^[A-Za-z0-9]{10}$/;
+        const gstPattern = /^\d{2}[A-Za-z0-9]{13}$/;
+        const accountPattern = /^[A-Za-z0-9]+$/;
+        const ifscPattern = /^[A-Za-z]{4}0[A-Za-z0-9]{6}$/;
+
+        if (!pinPattern.test(pinCode)) {
+            alert("Pin code must be exactly 6 digits and numeric.");
+            event.preventDefault();
+            return false;
+        }
+
+        if (landline && /\D/.test(landline)) {
+            alert("Contact details must contain numbers only.");
+            event.preventDefault();
+            return false;
+        }
+
+        if (!mobilePattern.test(financeMobile) || !mobilePattern.test(billingMobile) || !mobilePattern.test(shippingMobile) || (directorMobile && !mobilePattern.test(directorMobile))) {
+            alert("All mobile numbers must be 10 digits and numeric.");
+            event.preventDefault();
+            return false;
+        }
+
+        if (!emailPattern.test(financeEmail) || (billingEmail && !emailPattern.test(billingEmail)) || (shippingEmail && !emailPattern.test(shippingEmail)) || (directorEmail && !emailPattern.test(directorEmail))) {
+            alert("Please enter valid email addresses.");
+            event.preventDefault();
+            return false;
+        }
+
+        if (!panPattern.test(panCard)) {
+            alert("PAN card number must be exactly 10 alphanumeric characters with no special characters.");
+            event.preventDefault();
+            return false;
+        }
+
+        if (!gstPattern.test(gstNo)) {
+            alert("GST number must be 15 characters (first 2 digits followed by 13 alphanumeric characters).");
+            event.preventDefault();
+            return false;
+        }
+
+        if (!accountPattern.test(accountNo)) {
+            alert("Account number must not contain special characters.");
+            event.preventDefault();
+            return false;
+        }
+
+        if (!ifscPattern.test(ifscCode)) {
+            alert("IFSC code must be 11 characters (4 letters, 0, and 6 alphanumeric characters).");
+            event.preventDefault();
+            return false;
+        }
+
+        // Add further validations as needed...
+
+        return true;
+    }
+
+    document.querySelector('form').addEventListener('submit', validateForm);
+</script>
+
 </head>
 <body>
 
