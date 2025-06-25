@@ -61,7 +61,7 @@
             <td>{{ customer.finance_head_name }}</td>
             <td>{{ customer.finance_head_mobile }}</td>
             <td>
-                <a href="{% url 'customer_detail' customer.pk %}" class="btn-view">View</a>
+                <a href="{% url 'detail' customer.pk %}" class="btn-view">View</a>
             </td>
         </tr>
         {% empty %}

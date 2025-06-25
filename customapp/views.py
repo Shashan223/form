@@ -181,6 +181,10 @@ def register_customer(request):
             return render(request, 'customTemp/form.html', {'error': str(e)})
 
     return render(request, 'customTemp/form.html')
+def detail(request, pk):
+    customer = get_object_or_404(CustomerRegistration, pk=pk)
+    return render(request, 'customTemp/detail.html', {'customer': customer})
+
 import os
 import io
 import zipfile
