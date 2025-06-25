@@ -24,7 +24,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     
-    path('detail/', cv.detail,name='detail'),
+    path('detail/<int:pk>/', cv.detail,name='detail'),
     path('register/', cv.register_customer),
     path('login/', cv.user_login),
     path('', cv.menu),
